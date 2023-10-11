@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtual Fortune Cookie</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        #container {
+            width: 80%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #FF8800;
+        }
+        p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        button {
+            background-color: #FF8800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #fortune-cookie-container {
+            position: relative;
+        }
+        /* Style the fortune cookie image */
+        #fortune-cookie {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 1s;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Your Virtual Fortune Cookie</h1>
+        <p>Click the button below to reveal your fortune:</p>
+        <div id="fortune-cookie-container">
+            <!-- This is the image tag for the closed fortune cookie -->
+            <img id="fortune-cookie" src="images/closed cookie.jpg" alt="Virtual Fortune Cookie">
+        </div>
+        <p id="fortune-message"></p>
+        <button id="fortune-button">Open Fortune Cookie</button>
+    </div>
+
+    <script>
+        var fortuneMessages = [
+            "Your future is full of laughter and fun!",
+            "A surprise is waiting for you around the corner.",
+            "Adventure awaits - be prepared to embark on a new journey!",
+            "You bring joy and positivity to everyone you meet.",
+            "The best way to predict the future is to create it!"
+        ];
+
+        document.getElementById("fortune-button").onclick = function() {
+            var randomMessage = fortuneMessages[Math.floor(Math.random() * fortuneMessages.length)];
+            document.getElementById("fortune-message").innerText = randomMessage;
+            
+            // This is where the closed fortune cookie image is transformed into the open cookie image
+            document.getElementById("fortune-cookie").src = "images/opencookie.jpg";
+        };
+    </script>
+</body>
+</html>
